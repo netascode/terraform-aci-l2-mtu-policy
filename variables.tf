@@ -1,5 +1,5 @@
 variable "name" {
-  description = "Tenant name."
+  description = "Fabric L2 MTU custom policy name"
   type        = string
 
   validation {
@@ -8,24 +8,13 @@ variable "name" {
   }
 }
 
-variable "alias" {
-  description = "Tenant alias."
-  type        = string
-  default     = ""
+variable "port_mtu_size" {
+  description = "L2 MTU. Minimum value: `576`. Maximum value: `9216`."
+  type        = number
+  default     = 9000
 
   validation {
-    condition     = can(regex("^[a-zA-Z0-9_.-]{0,64}$", var.alias))
-    error_message = "Allowed characters: `a`-`z`, `A`-`Z`, `0`-`9`, `_`, `.`, `-`. Maximum characters: 64."
-  }
-}
-
-variable "description" {
-  description = "Tenant description."
-  type        = string
-  default     = ""
-
-  validation {
-    condition     = can(regex("^[a-zA-Z0-9\\!#$%()*,-./:;@ _{|}~?&+]{0,128}$", var.description))
-    error_message = "Allowed characters: `a`-`z`, `A`-`Z`, `0`-`9`, `\\`, `!`, `#`, `$`, `%`, `(`, `)`, `*`, `,`, `-`, `.`, `/`, `:`, `;`, `@`, ` `, `_`, `{`, `|`, }`, `~`, `?`, `&`, `+`. Maximum characters: 128."
+    condition     = var.port_mtu_size >= 576 && var.port_mtu_size <= 9216
+    error_message = " Minimum value: `576`. Maximum value: `9216`."
   }
 }
