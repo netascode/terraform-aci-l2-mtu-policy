@@ -1,9 +1,9 @@
-version: '>= 0.14.0'
+version: ">= 0.14.0"
 
 formatter: markdown table
 
 content: |-
-  # Scaffolding Example
+  # L2 MTU Policy Example
 
   To run this example you need to execute:
 

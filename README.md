@@ -1,19 +1,19 @@
 <!-- BEGIN_TF_DOCS -->
-[![Tests](https://github.com/netascode/terraform-aci-scaffolding/actions/workflows/test.yml/badge.svg)](https://github.com/netascode/terraform-aci-scaffolding/actions/workflows/test.yml)
+[![Tests](https://github.com/netascode/terraform-aci-l2-mtu-policy/actions/workflows/test.yml/badge.svg)](https://github.com/netascode/terraform-aci-l2-mtu-policy/actions/workflows/test.yml)
 
-# Terraform ACI Scaffolding Module
+# Terraform ACI L2 MTU Policy Module
 
 Description
 
 Location in GUI:
-`Tenants` » `XXX`
+`Fabric` » `Fabric Policies` » `Policies` » `Global` » `Fabric L2 MTU`
 
 ## Examples
 
 ```hcl
-module "aci_scaffolding" {
-  source  = "netascode/scaffolding/aci"
-  version = ">= 0.0.1"
+module "aci_l2_mtu_policy" {
+  source  = "netascode/l2-mtu-policy/aci"
+  version = ">= 0.1.0"
 
   name          = "L2_8950"
   port_mtu_size = 8950
